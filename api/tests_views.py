@@ -50,8 +50,10 @@ class CalculateDistanceViewTests(TestCase):
         response = self.client.get(reverse('calculate_distance'))
         self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
 
-    @patch('requests.get', side_effect=mock_requests_get)
+    @patch('requests.get')
     def test_calculate_distance_view_post_success(self, mock_get):
+        mock_get.side_effect = self.mock_requests_get
+
         data = {
             'start_address': 'start_address',
             'destination_address': 'destination_address'
@@ -61,8 +63,10 @@ class CalculateDistanceViewTests(TestCase):
         self.assertIn('distance', response.json())
         self.assertGreater(response.json()['distance'], 0)
 
-    @patch('requests.get', side_effect=mock_requests_get)
+    @patch('requests.get')
     def test_calculate_distance_view_post_no_results(self, mock_get):
+        mock_get.side_effect = self.mock_requests_get
+
         data = {
             'start_address': 'Nonexistent Start Address',
             'destination_address': 'Nonexistent Destination Address'
