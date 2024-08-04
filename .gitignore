@@ -1,0 +1,47 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+*.swp
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Django stuff:
+*.log
+staticfiles/
+media/
+
+# Ignore the local database
+*.sqlite3
+
+# VSCode settings
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Pytest
+.cache/
+
+# pipenv
+Pipfile
+Pipfile.lock
+
+# Virtual Environment
+myenv/
